@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script data-main='js/common.js' src='js/require.js'></script>
+        <link href="css/main.css" rel="stylesheet">
+    </head>
+    <body>
+
+        <div class="tab">
+            <button class="tablinks" id="openPortfolio" onclick="openTab(event, 'Portfolio')">Portfolio</button>
+            <button class="tablinks" id="openStocks" onclick="openTab(event, 'Stocks')">Stocks</button>
+            <button class="tablinks" id="openNew" onclick="openTab(event, 'News')">News</button>
+        </div>
+          
+        <div id="Portfolio" class="tabcontent">
+            <div style="display:flex; justify-content: left; align-items: center;">
+                <span style="cursor:pointer; margin-right:15px;" class="material-icons">account_balance_wallet</span>
+                <p id="walletBalance">$10,000</p>
+            </div>
+            <div id="piechart" style="width: 900px; height: 500px;"></div>
+        </div>
+          
+<!--         <div id="Stocks" class="tabcontent">
+            <select id="stockList">
+                <option>Choose a stock...</option>
+            </select><br>
+            Price: $<p id="stockPrice"></p>
+        </div>
+          
+        <div id="News" class="tabcontent">
+            <p>talliban have taken over afghanistan</p>
+        </div> -->
+
+    </body>
+</html>
+
+<script>
+var App = null;
+$(document).ready(() => {
+    require(["js/application.js"], Application => {
+        App = new Application();
+        App.init();
+    });
+});
+
+function openTab(evt, tabName) {
+    let i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+    document.getElementById("openPortfolio").click();
+}
+</script>
