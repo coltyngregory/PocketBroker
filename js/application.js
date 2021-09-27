@@ -1,8 +1,7 @@
 define([], () =>{
     class Application {
         constructor(options) {
-            console.log(options);
-            this.defaultValue = 'hello mr coltyn';
+
         }
 
         init() {
