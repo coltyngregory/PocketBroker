@@ -23,6 +23,6 @@ define(['jquery'], ($) =>{
         }
     }
 
-    return Application;
+    return Utility;
 
 });

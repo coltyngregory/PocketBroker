@@ -1,10 +1,9 @@
-define([], () =>{
+define(['js/utility.js'], (utility) =>{
     class Application {
-        constructor(options) {
-
-        }
+        constructor(options) {}
 
         init() {
+            this.utility = new utility({});
             applyUIbindings.call(this);
             showPortfolio.call(this);
         }
@@ -12,6 +11,18 @@ define([], () =>{
 
     function applyUIbindings() {
 
+    }
+
+    function signIn() {
+        if(!App.SignIn) {
+            require(["js/signIn.js"], SignIn => {
+                App.SignIn = new SignIn({
+                    containerId: 'signIn-container'
+                });
+            });
+        } else {
+            App.SignIn.init();
+        }
     }
 
     function showPortfolio() {
@@ -49,6 +60,8 @@ define([], () =>{
             App.News.init();
         }
     }
+
+    
 
     return Application;
 

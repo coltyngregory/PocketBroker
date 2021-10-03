@@ -1,7 +1,6 @@
 requirejs.config({
-    baseUrl: 'js/',
+    baseUrl: 'js/lib/',
     paths: {
-        'utility': 'utility',
         'charts': 'loader',
         'jquery': 'jquery.min',
         'knockout': 'knockout-3.5.1'
