@@ -1,12 +1,10 @@
 define(['jquery'], ($) =>{
     class Utility {
-        constructor(options) {
-
-        }
+        constructor(options) {}
 
         restServiceGet(url, obj) {
-            return new Promise((resolve, reject) => {
-                 $.ajax({
+            return new Promise((resolve reject) => {
+                $.ajax({
                     url: url,
                     success:function(data){
                         resolve(data);
@@ -16,13 +14,13 @@ define(['jquery'], ($) =>{
                         console.error(err);
                     }
                 });
-            }).catch(err => {
-                console.error(err);
+            }).catch((err) => {
                 reject(err);
+                console.error(err);
             });
         }
     }
 
-    return Utility;
+    return Application;
 
 });
