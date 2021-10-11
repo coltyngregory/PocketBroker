@@ -1,9 +1,6 @@
 define(['jquery', 'knockout'], ($, ko) => {
     class SignIn {
-        constructor(options) {
-            this.User = null;
-            this.init();
-        }
+        constructor(options) {}
 
         Destroy() {
             RemoveUIBindings.call(this);
@@ -14,8 +11,4 @@ define(['jquery', 'knockout'], ($, ko) => {
             ApplyUIBindings.call(this);
         }
     }
-
-    function fetchUserData() {
-        
-    }
-})
+});

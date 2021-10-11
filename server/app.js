@@ -1,28 +1,15 @@
 const express = require('express');
 const app = express();
+const apiKey = "HKTEcSxXtv5xdPC42I4HV7amFczlcJgh2CukxJZV";
+const cors = require('cors');
 
-app.get('/', (req, res) => {
-	this.apiKey = '1N6SG4GFLF1257TV';
-	let promiseArray = [];
-	for (let i = 0; i < this.tickersToCheck.length; i++) {
-		let promise = new Promise((resolve, reject) => {
-			let url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=${this.tickersToCheck[i]}&outputsize=compact&apikey=${this.apiKey}`
-			App.utility.restServiceGet(url).then((data) => {
-				this.chartData.push(data);
-				resolve();
-			}).catch(err => {
-				console.error(err);
-				reject();
-			});
-		});
-		promiseArray.push(promise);
-	}
-	Promise.all(promiseArray).then(() => {
-		console.log(this.chartData);
-	});
-  res.send('Hello World!')
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+
+app.get('/getprices', (req, res) => {
+	
 });
 
 app.listen(8888, () => {
-  console.log(`Server Running...`)
+	console.log('running')
 });

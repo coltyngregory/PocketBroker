@@ -26,30 +26,6 @@ define([], () =>{
         }
     }
 
-    function showStocks() {
-        if(!App.Stocks) {
-            require(["js/stocks.js"], Stocks => {
-                App.Stocks = new Stocks({
-                    containerId: 'stocks-container'
-                });
-            });
-        } else {
-            App.Stocks.init();
-        }
-    }
-
-    function showNews() {
-        if(!App.News) {
-            require(["js/news.js"], St => {
-                App.News = new News({
-                    containerId: 'news-container'
-                });
-            });
-        } else {
-            App.News.init();
-        }
-    }
-
     return Application;
 
 });
